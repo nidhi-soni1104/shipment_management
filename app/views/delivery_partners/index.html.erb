@@ -1,5 +1,4 @@
-<h1>My Shipments</h1>
-<%= link_to "New Shipment", new_shipment_path, class: "btn btn-primary" %>
+<h1>Shipments Available for Delivery</h1>
 
 <table>
   <tr>
@@ -14,8 +13,8 @@
       <td><%= shipment.destination %></td>
       <td><%= shipment.status %></td>
       <td>
-        <%= link_to "Edit", edit_shipment_path(shipment) %> |
-        <%= link_to "Delete", shipment, method: :delete, data: { confirm: "Are you sure?" } %>
+        <%= link_to "Mark as In Transit", update_status_delivery_partner_path(shipment, status: "in_transit"), method: :patch %> |
+        <%= link_to "Mark as Delivered", update_status_delivery_partner_path(shipment, status: "delivered"), method: :patch %>
       </td>
     </tr>
   <% end %>

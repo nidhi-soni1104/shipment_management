@@ -1,14 +1,15 @@
-<h2>Create a Shipment</h2>
-<%= form_with model: @shipment, local: true do |f| %>
+<h1>Create a New Shipment</h1>
+
+<%= form_with model: @shipment do |f| %>
   <div>
     <%= f.label :source %>
     <%= f.text_field :source %>
   </div>
+
   <div>
-    <%= f.label :target %>
-    <%= f.text_field :target %>
+    <%= f.label :destination %>
+    <%= f.text_field :destination %>
   </div>
-  <div>
-    <%= f.submit "Create Shipment" %>
-  </div>
+
+  <%= f.submit "Create Shipment" %>
 <% end %>
