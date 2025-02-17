@@ -24,6 +24,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :delivery_partners, only: [:index] do
+    member do
+      patch :update_status
+    end
+  end
+
 end
 
 
