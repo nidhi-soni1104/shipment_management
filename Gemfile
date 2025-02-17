@@ -67,3 +67,5 @@ end
 gem "devise", "~> 4.9"
 
 gem "pundit", "~> 2.4"
+
+gem "activeadmin", "~> 3.2"

@@ -1,0 +1,15 @@
+<h2>Assigned Shipments</h2>
+
+<ul>
+  <% @shipments.each do |shipment| %>
+    <li>
+      <strong>From:</strong> <%= shipment.source %>
+      <strong>To:</strong> <%= shipment.target %>
+      <strong>Status:</strong> <%= shipment.status %>
+
+      <% if shipment.status != "delivered" %>
+        <%= link_to "Mark as Delivered", update_shipment_path(shipment, status: "delivered"), method: :patch %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

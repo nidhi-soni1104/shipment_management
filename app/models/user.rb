@@ -1,15 +1,12 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # Include default Devise modules
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: { customer: 0, delivery_partner: 1, admin: 2 }
-  after_initialize :set_default_role, if: :new_record?
+  self.abstract_class = true
 
-  def set_default_role
-    self.role ||= :customer
-  end
+  # Fix: Ensure enum is correctly declared with a valid hash
+  enum role: { customer: 0, delivery_partner: 1, admin: 2 }, prefix: true
 
   has_one :customer
   has_one :delivery_partner

@@ -1,0 +1,12 @@
+<h2>Your Shipments</h2>
+<%= link_to "New Shipment", new_shipment_path, class: "btn" %>
+
+<ul>
+  <% @shipments.each do |shipment| %>
+    <li>
+      <strong>From:</strong> <%= shipment.source %>
+      <strong>To:</strong> <%= shipment.target %>
+      <strong>Status:</strong> <%= shipment.status %>
+    </li>
+  <% end %>
+</ul>
